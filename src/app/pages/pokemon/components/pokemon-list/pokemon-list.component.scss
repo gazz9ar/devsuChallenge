@@ -1,0 +1,45 @@
+.container {
+	
+	padding: 150px 100px;
+}
+table {
+	width: 100%;
+  }
+
+  mat-cell > span.ellipsis {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap;
+ }
+
+ .img-pokemon{
+	width: 100px;
+	height: auto;
+ }
+ .column-200 {
+	width: 200px;
+	overflow: hidden;
+	padding: 5px 0;
+ }
+ .column-150 {
+	width: 150px;
+	overflow: hidden;
+	padding: 5px 0;
+ }
+ .column-100 {
+	width: 100px;
+	overflow: hidden;
+	padding: 5px 0;
+ }
+ .filter-new-container {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .add-comp {
+	margin-top: 50px;
+ }
+ .edit-icon {
+	margin-left: 25px;
+	margin-right: 10px;
+ }

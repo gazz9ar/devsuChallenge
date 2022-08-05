@@ -1,0 +1,82 @@
+<div class="container">
+
+	<div class="title">
+		<h3>{{saveEditTitle}} Pokemon <strong *ngIf="isEdit">{{pokemonToAdd.name}}</strong> </h3> 
+	</div>
+	<form class="form" [formGroup]="formPokemon" (ngSubmit)="onSubmit()">
+		<div class="name-attack">
+			<div>
+				<!-- <span>Nombre: </span> -->
+				<mat-form-field class="example-full-width" appearance="fill">
+					<mat-label>Nombre</mat-label>
+					<input matInput placeholder="Ej: Pikachu" [value]="" formControlName="name">
+				</mat-form-field>
+
+				<!-- NAME ERRORS -->
+				<div
+				class="error"
+				*ngIf="formPokemon.get('name').hasError('required') && formPokemon.get('name').touched">
+				 * Nombre requerido				 
+				</div>
+				
+			</div>		
+
+			<div>
+				<span>Ataque: </span>
+				<mat-slider
+				thumbLabel			
+				tickInterval="1"
+				step="1"
+				min="0"
+				max="100"
+				aria-label="units"
+				formControlName="attack"></mat-slider>
+
+				<div
+				class="error aboslute"
+				*ngIf="formPokemon.get('attack').hasError('min') && formPokemon.get('attack').touched">
+				* El valor ingresado debe ser mayor a 0
+				</div>
+			</div>
+		</div>
+
+		<div class="name-attack">
+			<div>
+				<!-- <span>Nombre: </span> -->
+				<mat-form-field class="example-full-width" appearance="fill">
+					<mat-label>Imagen:</mat-label>
+					<input matInput placeholder="Ej: www.example.com/url" [value]="" formControlName="image">
+				</mat-form-field>
+
+				<div
+				class="error"
+				*ngIf="formPokemon.get('image').hasError('required') && formPokemon.get('image').touched">
+				 * Imagen requerida		 
+				</div>
+			</div>		
+
+			<div>
+				<span>Defensa: </span>
+				<mat-slider
+				thumbLabel			
+				tickInterval="1"
+				step="1"
+				min="0"
+				max="100"
+				aria-label="units"
+				formControlName="defense"></mat-slider>
+
+				<div
+				class="error aboslute"
+				*ngIf="formPokemon.get('defense').hasError('min') && formPokemon.get('defense').touched">
+				 * El valor ingresado debe ser mayor a 0
+				</div>
+			</div>
+		</div>
+
+		<div class="form-btns">
+			<button mat-raised-button color="primary" type="submit" [disabled]="formPokemon.invalid"><mat-icon style="padding-bottom: 5px ;" >save</mat-icon> {{saveEdit}}</button>
+			<button mat-raised-button color="warn" (click)="close()"><mat-icon style="padding-bottom: 5px ;">close</mat-icon>Cancelar</button>
+		</div>
+	</form>
+</div>
